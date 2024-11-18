@@ -14,6 +14,7 @@ const theme = {
     heading:
       'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif',
   },
+  breakpoints: ["40em", "52em", "64em"],
   space: [0, 4, 8, 16, 32, 48, 64, 96, 128, 192, 256, 512],
   fontSizes: [12, 14, 16, 20, 24, 32, 48, 64],
   fontWeights: {
