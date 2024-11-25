@@ -142,25 +142,36 @@ exports.createPages = async ({ actions, graphql }) => {
   }
   function getPagePath(page, locale) {
     let lang = locale === defaultLocale ? "" : `${locale.toLowerCase()}/`
-    let path = page._allSlugLocales.find(
+    let slugData = page._allSlugLocales?.find(
       slugLocale => slugLocale.locale === locale
-    ).value
+    )
+    if (!slugData) return null
+    let path = slugData.value
+
     if (page.root) {
       return lang + `${path}/`
     }
 
-    let parentPath = page.treeParent._allSlugLocales.find(
+    if (!page.treeParent) return null
+    let parentSlugData = page.treeParent._allSlugLocales?.find(
       slugLocale => slugLocale.locale === locale
-    ).value
+    )
+    if (!parentSlugData) return null
+    let parentPath = parentSlugData.value
     path = `${parentPath}/${path}/`
+
     if (page.treeParent.root) {
       return lang + path
     }
 
-    let grandParentPath = page.treeParent.treeParent._allSlugLocales.find(
+    if (!page.treeParent.treeParent) return null
+    let grandParentSlugData = page.treeParent.treeParent._allSlugLocales?.find(
       slugLocale => slugLocale.locale === locale
-    ).value
+    )
+    if (!grandParentSlugData) return null
+    let grandParentPath = grandParentSlugData.value
     path = `${grandParentPath}/${path}/`
+
     return lang + path
   }
 
@@ -198,13 +209,16 @@ exports.createPages = async ({ actions, graphql }) => {
   )
 
   data.page.nodes.map(page =>
-    page._allSlugLocales.map(slug =>
-      actions.createPage({
-        path: getPagePath(page, slug.locale),
-        component: require.resolve(`./src/templates/page.js`),
-        context: { id: page.id, locale: slug.locale },
-      })
-    )
+    page._allSlugLocales.map(slug => {
+      const pagePath = getPagePath(page, slug.locale)
+      if (pagePath) {
+        actions.createPage({
+          path: pagePath,
+          component: require.resolve(`./src/templates/page.js`),
+          context: { id: page.id, locale: slug.locale },
+        })
+      }
+    })
   )
 
   data.product.nodes.map(page =>
