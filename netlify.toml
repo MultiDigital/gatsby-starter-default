@@ -1,5 +1,5 @@
 [build]
-  command = "npm cache clean --force && npm ci && npm run build:clean"
+  command = "npm cache clean --force && npm ci --legacy-peer-deps && npm run build:clean"
   functions = "netlify/functions"
   publish = "public"
 
