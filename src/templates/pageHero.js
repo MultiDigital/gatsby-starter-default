@@ -5,6 +5,11 @@ import Breadcrumbs from "../components/breadcrumbs"
 import BackgroundVideo from "../components/blocks/backgroundVideo"
 import PageIntro from "../components/blocks/pageIntro"
 const PageHero = ({ block, page }) => {
+  // Safety check: return null if block doesn't exist
+  if (!block) {
+    return null
+  }
+
   return (
     <Box
       sx={{
@@ -15,7 +20,7 @@ const PageHero = ({ block, page }) => {
         overflow: "hidden",
       }}
     >
-      {block && block.heroImage && (
+      {block.heroImage && (
         <>
           {/* Desktop version */}
           <Box
@@ -67,7 +72,9 @@ const PageHero = ({ block, page }) => {
                 <GatsbyImage image={block.mobile.gatsbyImageData} alt="" />
               )
             ) : (
-              <GatsbyImage image={block.heroImage.mobile} alt="" />
+              block.heroImage.mobile && (
+                <GatsbyImage image={block.heroImage.mobile} alt="" />
+              )
             )}
           </Box>
         </>
