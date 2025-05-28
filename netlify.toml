@@ -1,5 +1,5 @@
 [build]
-  command = "npm cache clean --force && npm ci --legacy-peer-deps && npm run build:clean"
+  command = "npm cache clean --force && rm -f package-lock.json && npm install && npm run build:clean"
   functions = "netlify/functions"
   publish = "public"
 
@@ -10,6 +10,8 @@
   NPM_CONFIG_CACHE = "/opt/build/cache/npm"
   # Disable problematic binary downloads during build
   MSGPACKR_PREBUILDS = "false"
+  # Handle legacy peer dependencies
+  NPM_CONFIG_LEGACY_PEER_DEPS = "true"
 
 [functions]
   node_bundler = "esbuild"
