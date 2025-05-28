@@ -5,7 +5,6 @@ import Breadcrumbs from "../components/breadcrumbs"
 import BackgroundVideo from "../components/blocks/backgroundVideo"
 import PageIntro from "../components/blocks/pageIntro"
 const PageHero = ({ block, page }) => {
-  // Safety check: return null if block doesn't exist
   if (!block) {
     return null
   }
@@ -22,7 +21,6 @@ const PageHero = ({ block, page }) => {
     >
       {block.heroImage && (
         <>
-          {/* Desktop version */}
           <Box
             sx={{
               display: ["none", "none", "block"],
@@ -48,7 +46,6 @@ const PageHero = ({ block, page }) => {
             )}
           </Box>
 
-          {/* Mobile version with fallback logic */}
           <Box
             sx={{
               display: ["block", "block", "none", "none"],
