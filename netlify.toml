@@ -1,14 +1,22 @@
 [build]
-  command = "npm run build"
+  command = "npm cache clean --force && npm ci && npm run build:clean"
   functions = "netlify/functions"
   publish = "public"
 
 [build.environment]
   NODE_VERSION = "18.17.0"
   NPM_VERSION = "8.19.0"
+  # Clear cache on problematic builds
+  NPM_CONFIG_CACHE = "/opt/build/cache/npm"
+  # Disable problematic binary downloads during build
+  MSGPACKR_PREBUILDS = "false"
 
 [functions]
   node_bundler = "esbuild"
+
+# Cache optimization
+[build.processing]
+  skip_processing = false
 
 [[redirects]]
   from = "/api/*"
