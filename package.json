@@ -51,6 +51,10 @@
     "gatsby"
   ],
   "license": "0BSD",
+  "engines": {
+    "node": ">=18.17.0",
+    "npm": ">=8.0.0"
+  },
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
