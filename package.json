@@ -12,8 +12,8 @@
     "datocms-search": "^0.1.8",
     "framer-motion": "^11.2.12",
     "gatsby": "^5.12.4",
-    "gatsby-plugin-google-gtag": "^5.14.0",
-    "gatsby-plugin-google-tagmanager": "^5.14.0",
+    "gatsby-plugin-google-gtag": "^5.12.0",
+    "gatsby-plugin-google-tagmanager": "^5.12.0",
     "gatsby-plugin-image": "^3.12.0",
     "gatsby-plugin-manifest": "^5.12.0",
     "gatsby-plugin-offline": "^5.14.1",
@@ -46,9 +46,6 @@
   },
   "devDependencies": {
     "prettier": "^2.8.8"
-  },
-  "overrides": {
-    "graphql": "^16.6.0"
   },
   "keywords": [
     "gatsby"
