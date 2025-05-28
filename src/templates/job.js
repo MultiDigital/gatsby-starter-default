@@ -31,7 +31,7 @@ const JobPage = ({ data: { page, site, menu, footer }, pageContext }) => {
       <HelmetDatoCms seo={page.seoMetaTags}>
         <html lang={page.locale} />
       </HelmetDatoCms>
-      <PageHero page={page} />
+      {/* <PageHero page={page} /> */}
       <Box as="section">
         <Container>
           <Grid

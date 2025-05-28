@@ -5,6 +5,10 @@ import Breadcrumbs from "../components/breadcrumbs"
 import BackgroundVideo from "../components/blocks/backgroundVideo"
 import PageIntro from "../components/blocks/pageIntro"
 const PageHero = ({ block, page }) => {
+  if (!block) {
+    return null
+  }
+
   return (
     <Box
       sx={{
@@ -17,7 +21,6 @@ const PageHero = ({ block, page }) => {
     >
       {block.heroImage && (
         <>
-          {/* Desktop version */}
           <Box
             sx={{
               display: ["none", "none", "block"],
@@ -43,7 +46,6 @@ const PageHero = ({ block, page }) => {
             )}
           </Box>
 
-          {/* Mobile version with fallback logic */}
           <Box
             sx={{
               display: ["block", "block", "none", "none"],
@@ -67,7 +69,9 @@ const PageHero = ({ block, page }) => {
                 <GatsbyImage image={block.mobile.gatsbyImageData} alt="" />
               )
             ) : (
-              <GatsbyImage image={block.heroImage.mobile} alt="" />
+              block.heroImage.mobile && (
+                <GatsbyImage image={block.heroImage.mobile} alt="" />
+              )
             )}
           </Box>
         </>
