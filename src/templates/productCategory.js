@@ -48,7 +48,7 @@ const Page = ({
       <HelmetDatoCms seo={page.seoMetaTags}>
         <html lang={page.locale} />
       </HelmetDatoCms>
-      <PageHero page={page} image={page.heroImage} />
+      {/* <PageHero page={page} image={page.heroImage} /> */}
       <Box>{page.content && page.content.map(block => <Box>22</Box>)}</Box>
       <Box>
         <Container>
