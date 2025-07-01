@@ -1,0 +1,21 @@
+[build]
+  command = "yarn build:netlify"
+  publish = "public"
+
+[build.environment]
+  NODE_VERSION = "18"
+  YARN_VERSION = "1.22.19"
+  YARN_FLAGS = "--frozen-lockfile"
+
+# Disable Gatsby plugin to avoid cache issues
+[[plugins]]
+  package = "@netlify/plugin-gatsby"
+  
+[plugins.inputs]
+  cacheDir = ".cache"
+  publicDir = "public"
+
+# Alternative: completely disable the plugin if issues persist
+# Remove the plugin section above and uncomment below
+# [build.processing]
+#   skip_processing = false 
