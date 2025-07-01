@@ -15,7 +15,7 @@ const PageHero = ({ block, page }) => {
         overflow: "hidden",
       }}
     >
-      {block.heroImage && (
+      {block && block.heroImage && (
         <>
           {/* Desktop version */}
           <Box

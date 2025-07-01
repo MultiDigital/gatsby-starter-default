@@ -51,11 +51,12 @@
   "license": "0BSD",
   "scripts": {
     "build": "gatsby build",
+    "build:netlify": "gatsby clean && rm -rf .cache && gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,css}\"",
     "start": "gatsby develop",
     "serve": "gatsby serve",
-    "clean": "gatsby clean",
+    "clean": "gatsby clean && rm -rf .cache node_modules/.cache",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "repository": {

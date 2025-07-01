@@ -47,6 +47,7 @@ const Page = ({ data: { page, site, footer, menu }, pageContext }) => {
       i18nPaths={i18nPaths}
       menuData={menu.nodes}
       footerData={footer.nodes}
+      dark={false}
     >
       <HelmetDatoCms seo={page.seoMetaTags}>
         <html lang={page.locale} />

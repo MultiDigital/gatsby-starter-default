@@ -3,6 +3,7 @@ import { Box, Container, Flex } from "@theme-ui/components"
 import { getHomePath, getSearchPath } from "../utils/path"
 import { InboundLink } from "./link"
 import Logo from "../images/logo.svg"
+import LogoDark from "../images/logo-dark.png"
 import { MagicLink } from "../utils/magicLink"
 import LanguageSwitcher from "./languageSwitcher"
 import { debounce } from "lodash"
@@ -10,7 +11,7 @@ import { LanguageSwitcherContext } from "../context/languageSwitcherContext"
 import { MenuContext } from "../context/menuContext"
 import { useEffect } from "react"
 
-const FixedNav = () => {
+const FixedNav = ({ dark = false }) => {
   const menu = useContext(MenuContext)
   const { activeLocale: locale } = useContext(LanguageSwitcherContext)
   const Logo = () => (
@@ -54,7 +55,11 @@ const FixedNav = () => {
         >
           <Box sx={{ paddingX: 2, paddingY: 3, img: { height: "100%" } }}>
             <InboundLink to={getHomePath(locale)}>
-              <Logo />
+              {dark ? (
+                <img src={LogoDark} alt="Logo" style={{ height: "50px" }} />
+              ) : (
+                <Logo />
+              )}
             </InboundLink>
           </Box>
           <MenuItems menu={menu} locale={locale} />

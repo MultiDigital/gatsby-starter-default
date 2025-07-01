@@ -9,13 +9,14 @@ import { Box, Container, Flex } from "@theme-ui/components"
 import { getHomePath, getSearchPath } from "../utils/path"
 import { InboundLink } from "./link"
 import Logo from "../images/logo.svg"
+import LogoDark from "../images/logo-dark.png"
 import { MagicLink } from "../utils/magicLink"
 import LanguageSwitcher from "./languageSwitcher"
 import { debounce } from "lodash"
 import { LanguageSwitcherContext } from "../context/languageSwitcherContext"
 import { MenuContext } from "../context/menuContext"
 
-const Nav = () => {
+const Nav = ({ dark }) => {
   const [isVisible, setIsVisible] = useState(true)
   const [isAtTop, setIsAtTop] = useState(true)
   const lastScrollY = useRef(0)
@@ -96,7 +97,15 @@ const Nav = () => {
         >
           <Box sx={{ paddingX: 2, paddingY: 3, img: { height: "100%" } }}>
             <InboundLink to={getHomePath(locale)}>
-              <Logo />
+              {dark ? (
+                <img
+                  style={{ width: "250px", height: "100px" }}
+                  src={LogoDark}
+                  alt="Logo"
+                />
+              ) : (
+                <Logo />
+              )}
             </InboundLink>
           </Box>
           <MenuItems menu={menu} locale={locale} />

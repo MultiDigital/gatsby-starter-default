@@ -3,6 +3,7 @@ import { motion } from "framer-motion"
 import Burger from "../images/burger.svg"
 import { Box, Image } from "@theme-ui/components"
 import Logo from "../images/logo.svg"
+import LogoDark from "../images/logo-dark.png"
 
 import X from "../images/close.svg"
 import { getHomePath } from "../utils/path"
@@ -12,7 +13,7 @@ import { LanguageSwitcherContext } from "../context/languageSwitcherContext"
 import { MenuContext } from "../context/menuContext"
 
 import { FooterContext } from "../context/footerContext"
-const FixedMobileNav = ({}) => {
+const FixedMobileNav = ({ dark }) => {
   const [mobileNavOpen, setMobileNavOpen] = useState(false)
   const locale = useContext(LanguageSwitcherContext).activeLocale
   const menu = useContext(MenuContext)
@@ -96,7 +97,11 @@ const FixedMobileNav = ({}) => {
       >
         <Box sx={{ a: { display: "block" } }}>
           <InboundLink to={getHomePath(locale)} className="logo-link">
-            <Image sx={{ height: "40px" }} src={Logo} alt="Logo" />
+            {dark ? (
+              <Image sx={{ height: "40px" }} src={LogoDark} alt="Logo" />
+            ) : (
+              <Image sx={{ height: "40px" }} src={Logo} alt="Logo" />
+            )}
           </InboundLink>
         </Box>
         <Box sx={{}} onClick={() => setMobileNavOpen(!mobileNavOpen)}>
@@ -135,7 +140,11 @@ const FixedMobileNav = ({}) => {
             }}
           >
             <InboundLink to={getHomePath(locale)} className="logo-link">
-              <Image sx={{ height: "40px" }} src={Logo} alt="Logo" />
+              {dark ? (
+                <Image sx={{ height: "40px" }} src={LogoDark} alt="Logo" />
+              ) : (
+                <Image sx={{ height: "40px" }} src={Logo} alt="Logo" />
+              )}
             </InboundLink>
             <Box sx={{}} onClick={() => setMobileNavOpen(false)}>
               <Image sx={{ height: "30px", width: "30px" }} src={X} />
