@@ -4,7 +4,7 @@ import Nav from "./nav"
 import MobileNav from "./mobileNav"
 import FixedNav from "./fixedNav"
 import FixedMobileNav from "./fixedMobileNav"
-const Header = ({ locale }) => {
+const Header = ({ locale, dark = false }) => {
   React.useEffect(() => {
     const updateNavbarHeight = () => {
       const headerElement = document.querySelector("header")
@@ -44,13 +44,17 @@ const Header = ({ locale }) => {
           zIndex: 4,
         }}
       >
-        {fixed === true ? <FixedNav /> : <Nav locale={locale} />}
+        {fixed === true ? (
+          <FixedNav dark={dark} />
+        ) : (
+          <Nav locale={locale} dark={dark} />
+        )}
       </Box>
       <Box sx={{ display: ["block", "block", "block", "none"], zIndex: 4 }}>
         {fixed === true ? (
-          <FixedMobileNav />
+          <FixedMobileNav dark={dark} />
         ) : (
-          <MobileNav locale={locale} isAtTop={fixed} />
+          <MobileNav locale={locale} isAtTop={fixed} dark={dark} />
         )}
       </Box>
     </Box>

@@ -18,7 +18,14 @@ import { FooterContext } from "../context/footerContext"
 
 import { MenuContext } from "../context/menuContext"
 
-const Layout = ({ children, locale, i18nPaths, footerData, menuData }) => {
+const Layout = ({
+  children,
+  locale,
+  i18nPaths,
+  footerData,
+  menuData,
+  dark = false,
+}) => {
   const data = useStaticQuery(graphql`
     query SiteQuery {
       datoCmsSite: datoCmsSite {
@@ -54,7 +61,7 @@ const Layout = ({ children, locale, i18nPaths, footerData, menuData }) => {
                 minHeight: "100vh",
               }}
             >
-              <Header locale={locale} />
+              <Header locale={locale} dark={dark} />
               <Box as="main" sx={{ pt: "var(--navbar-height)" }}>
                 {children}
               </Box>

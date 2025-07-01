@@ -30,6 +30,7 @@ const Article = ({ data: { page, site, footer, menu }, pageContext }) => {
       i18nPaths={i18nPaths}
       footerData={footer.nodes}
       menuData={menu.nodes}
+      dark={true}
     >
       <HelmetDatoCms seo={page.seoMetaTags}>
         <html lang={page.locale} />
