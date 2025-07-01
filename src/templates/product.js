@@ -44,11 +44,11 @@ const Page = ({
       <HelmetDatoCms seo={page.seoMetaTags}>
         <html lang={page.locale} />
       </HelmetDatoCms>
-      <PageHero
+      {/* <PageHero
         page={page}
         image={pageCategory.categoryImageHero}
         productCategory={pageCategory}
-      />
+      /> */}
       <Container>
         <Grid columns={[1, 2]} gap={[5]} sx={{ pt: [7] }}>
           {page.images && page.images.length > 0 && (
