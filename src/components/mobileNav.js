@@ -13,6 +13,7 @@ import { MenuContext } from "../context/menuContext"
 
 import { FooterContext } from "../context/footerContext"
 const MobileNav = ({}) => {
+  console.log("MobileNav")
   const [isVisible, setIsVisible] = useState(true)
   const [isAtTop, setIsAtTop] = useState(true)
   const [mobileNavOpen, setMobileNavOpen] = useState(false)
