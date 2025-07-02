@@ -8,6 +8,7 @@
     "@loadable/component": "^5.15.0",
     "@mux/mux-player-react": "^2.7.0",
     "@theme-ui/color": "^0.12.0",
+    "cheerio": "latest",
     "datocms-search": "^0.1.8",
     "framer-motion": "^11.2.12",
     "gatsby": "^5.12.4",
