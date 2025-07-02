@@ -50,9 +50,7 @@
   "keywords": [
     "gatsby"
   ],
-  "engines": {
-    "node": ">=20.0.0"
-  },
+
   "license": "0BSD",
   "scripts": {
     "build": "gatsby build",
